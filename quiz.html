@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Quiz</h1>
+<form method="POST">
+    {% for question in questions %}
+    <div class="form-group">
+        <p>{{ question.text }}</p>
+        <input type="radio" name="question_{{ question.id }}" value="1"> {{ question.choice_1 }}<br>
+        <input type="radio" name="question_{{ question.id }}" value="2"> {{ question.choice_2 }}<br>
+        <input type="radio" name="question_{{ question.id }}" value="3"> {{ question.choice_3 }}<br>
+    </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}
